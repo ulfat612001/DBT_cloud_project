@@ -1,0 +1,87 @@
+version: 2
+models:
+  - name: hub_customer
+    columns:
+      - name: sha1_hub_customer
+        description: "Primary key for this table"
+        tests:
+          - dbt_constraints.primary_key
+  - name: sat_customer
+    tests:
+      - dbt_constraints.primary_key:
+          column_names: 
+            - sha1_hub_customer
+            - ldts
+      - dbt_constraints.foreign_key:
+          fk_column_names:
+            - sha1_hub_customer
+          pk_table_name: ref('hub_customer')
+          pk_column_names:
+              - sha1_hub_customer
+  - name: hub_order
+    columns:
+      - name: sha1_hub_order
+        description: "Primary key for this table"
+        tests:
+          - dbt_constraints.primary_key
+  - name: sat_order
+    tests:
+      - dbt_constraints.primary_key:
+          column_names: 
+            - sha1_hub_order
+            - ldts
+      - dbt_constraints.foreign_key:
+          fk_column_names:
+            - sha1_hub_order
+          pk_table_name: ref('hub_order')
+          pk_column_names:
+              - sha1_hub_order
+  - name: lnk_customer_order
+    columns:
+      - name: sha1_lnk_customer_order
+        description: "Primary key for this table"
+        tests:
+          - dbt_constraints.primary_key
+    tests:
+      - dbt_constraints.foreign_key:
+          fk_column_names:
+            - sha1_hub_customer
+          pk_table_name: ref('hub_customer')
+          pk_column_names:
+              - sha1_hub_customer
+      - dbt_constraints.foreign_key:
+          fk_column_names:
+            - sha1_hub_order
+          pk_table_name: ref('hub_order')
+          pk_column_names:
+              - sha1_hub_order
+  - name: ref_region
+    columns:
+      - name: regioncode
+        description: "Primary key for this table"
+        tests:
+          - dbt_constraints.primary_key
+  - name: ref_nation
+    columns:
+      - name: nationcode
+        description: "Primary key for this table"
+        tests:
+          - dbt_constraints.primary_key
+      - name: regioncode
+        tests:
+          - dbt_constraints.foreign_key:
+              pk_table_name: ref('ref_region')
+              pk_column_name: regioncode
+  - name: sat_order_bv
+    tests:
+      - dbt_constraints.primary_key:
+          column_names: 
+            - sha1_hub_order
+            - ldts
+      - dbt_constraints.foreign_key:
+          fk_column_names:
+            - sha1_hub_order
+          pk_table_name: ref('hub_order')
+          pk_column_names:
+              - sha1_hub_order
+          
