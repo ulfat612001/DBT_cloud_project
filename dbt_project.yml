@@ -37,7 +37,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   DBT_cloud_project:
-    # Applies to all files under models/example/
     L10_RDV:
       +materialized: table
       sat_customer_curr_vw:
