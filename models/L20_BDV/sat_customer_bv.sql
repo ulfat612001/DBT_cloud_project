@@ -12,7 +12,7 @@ SELECT rsc.sha1_hub_customer
      , rrn.n_name                    nation_name
      , rrr.r_name                    region_name
   FROM l10_rdv.sat_customer          rsc
-  LEFT OUTER JOIN l10_rdv.ref_nation rrn
+  LEFT OUTER JOIN {{ref('ref_nation')}} rrn
     ON (rsc.nationcode = rrn.nationcode)
-  LEFT OUTER JOIN l10_rdv.ref_region rrr
+  LEFT OUTER JOIN {{ref('ref_region')}} rrr
     ON (rrn.regioncode = rrr.regioncode)

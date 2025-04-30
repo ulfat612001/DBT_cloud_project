@@ -42,19 +42,19 @@ models:
         description: "Primary key for this table"
         tests:
           - dbt_constraints.primary_key
-    #tests:
-      # - dbt_constraints.foreign_key:
-      #     fk_column_names:
-      #       - sha1_hub_customer
-      #     pk_table_name: ref('hub_customer')
-      #     pk_column_names:
-      #         - sha1_hub_customer
-      # - dbt_constraints.foreign_key:
-      #     fk_column_names:
-      #       - sha1_hub_order
-      #     pk_table_name: ref('hub_order')
-      #     pk_column_names:
-      #         - sha1_hub_order
+    tests:
+      - dbt_constraints.foreign_key:
+          fk_column_names:
+            - sha1_hub_customer
+          pk_table_name: ref('hub_customer')
+          pk_column_names:
+              - sha1_hub_customer
+      - dbt_constraints.foreign_key:
+          fk_column_names:
+            - sha1_hub_order
+          pk_table_name: ref('hub_order')
+          pk_column_names:
+              - sha1_hub_order
   - name: ref_region
     columns:
       - name: regioncode
