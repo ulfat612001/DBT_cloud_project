@@ -42,7 +42,7 @@ models:
         description: "Primary key for this table"
         tests:
           - dbt_constraints.primary_key
-    tests:
+    #tests:
       # - dbt_constraints.foreign_key:
       #     fk_column_names:
       #       - sha1_hub_customer
