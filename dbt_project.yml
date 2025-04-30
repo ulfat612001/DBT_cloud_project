@@ -39,6 +39,7 @@ models:
   DBT_cloud_project:
     L10_RDV:
       +materialized: table
+      +transient: false
       sat_customer_curr_vw:
         +materialized: view
       sat_order_curr_vw:
@@ -48,6 +49,7 @@ models:
       +materialized: view
       sat_order_bv:
         +materialized: table
+        +transient: false
     L30_ID:
       +schema: L30_ID
       +materialized: view
