@@ -3,4 +3,4 @@ SELECT sha1_lnk_customer_order,
        sha1_hub_order,
        ldts,
        rscr
-FROM   l00_stg.orders_strm_temp 
+FROM   L00_STG.STG_ORDER_STRM_OUTBOUND
