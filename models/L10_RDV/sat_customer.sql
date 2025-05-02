@@ -10,4 +10,4 @@ SELECT
        C_NATIONCODE as nationcode,
        CUSTOMER_HASH_DIFF as hash_diff,
        rscr 
-FROM  L00_STG.stg_customer_strm_outbound
+FROM  L00_STG.CUSTOMER_STRM_TEMP
