@@ -38,7 +38,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   DBT_cloud_project:
     L10_RDV:
-      +materialized: table
+      +materialized: incremental
       +transient: false
       sat_customer_curr_vw:
         +materialized: view
@@ -48,7 +48,7 @@ models:
       +schema: L20_BDV
       +materialized: view
       sat_order_bv:
-        +materialized: table
+        +materialized: incremental
         +transient: false
     L30_ID:
       +schema: L30_ID
