@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized='incremental',
+        transient=False
+    )
+}}
 SELECT sha1_hub_order,
        ldts,
        o_orderstatus,
