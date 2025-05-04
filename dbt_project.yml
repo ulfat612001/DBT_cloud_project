@@ -38,6 +38,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   DBT_cloud_project:
     L10_RDV:
+      +schema: L10_RDV
       +materialized: incremental
       +transient: false
     L20_BDV:
