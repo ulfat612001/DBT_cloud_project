@@ -6,6 +6,8 @@ models:
         description: "Primary key for this table"
         tests:
           - dbt_constraints.primary_key
+          - unique
+          - not_null
   - name: sat_customer
     tests:
       - dbt_constraints.primary_key:
@@ -24,6 +26,8 @@ models:
         description: "Primary key for this table"
         tests:
           - dbt_constraints.primary_key
+          - unique
+          - not_null
   - name: sat_order
     tests:
       - dbt_constraints.primary_key:
@@ -42,6 +46,8 @@ models:
         description: "Primary key for this table"
         tests:
           - dbt_constraints.primary_key
+          - unique
+          - not_null
     tests:
       - dbt_constraints.foreign_key:
           fk_column_names:
@@ -61,12 +67,16 @@ models:
         description: "Primary key for this table"
         tests:
           - dbt_constraints.primary_key
+          - unique
+          - not_null
   - name: ref_nation
     columns:
       - name: nationcode
         description: "Primary key for this table"
         tests:
           - dbt_constraints.primary_key
+          - unique
+          - not_null
       - name: regioncode
         tests:
           - dbt_constraints.foreign_key:

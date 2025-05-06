@@ -1,3 +1,8 @@
+{{
+    config(
+        transient=False
+    )
+}}
 SELECT sha1_hub_order,
        ldts,
        o_orderstatus,
@@ -16,4 +21,4 @@ SELECT sha1_hub_order,
               AND o_totalprice BETWEEN 150000 AND 200000 THEN 'Tier-2'
          ELSE 'Tier-3'
        END order_priority_bucket
-FROM   l10_rdv.sat_order 
+FROM   {{ref('sat_order')}}

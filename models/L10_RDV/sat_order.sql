@@ -1,3 +1,4 @@
+{{config(incremental_strategy = 'merge', unique_key=['sha1_hub_order','hash_diff'])}}
 SELECT sha1_hub_order,
        ldts ,
        o_orderstatus,
@@ -9,4 +10,4 @@ SELECT sha1_hub_order,
        o_comment,
        order_hash_diff as hash_diff,
        rscr
-FROM   l00_stg.orders_strm_temp 
+FROM   L00_STG.STG_ORDER_STRM_OUTBOUND

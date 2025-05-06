@@ -1,3 +1,4 @@
+{{config(incremental_strategy = 'merge', unique_key=['regioncode'])}}
 SELECT r_regionkey as regioncode
      , ldts
      , rscr
