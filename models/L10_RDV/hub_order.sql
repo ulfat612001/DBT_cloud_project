@@ -1,3 +1,4 @@
+{{config(incremental_strategy = 'merge', unique_key=['sha1_hub_order'])}}
 SELECT sha1_hub_order,
        o_orderkey,
        ldts,

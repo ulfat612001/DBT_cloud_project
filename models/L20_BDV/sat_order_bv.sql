@@ -1,6 +1,5 @@
 {{
     config(
-        materialized='incremental',
         transient=False
     )
 }}
